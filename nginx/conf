@@ -16,6 +16,6 @@ server {
     ssl_dhparam /etc/ssl/certs/dhparam.pem;
 
     location / {
-        proxy_pass   http://backend:5000;
+        proxy_pass http://backend:9090;
     }
 }

@@ -1,0 +1,19 @@
+services:
+  web:
+    build: nginx
+    environment:
+      - FLASK_SERVER_ADDR=backend:9091
+      - flask_server_addr=backend:9091
+    ports:
+      - 80:80
+      - 443:443
+    depends_on:
+      - backend
+  backend:
+    build: backend
+    environment:
+      - FLASK_SERVER_PORT=9090
+    depends_on:
+      -  mongo
+  mongo:
+    image: mongo
